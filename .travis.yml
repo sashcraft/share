@@ -27,7 +27,7 @@ before_cache:
 branches:
   only:
     - master
-    - /^SP\/.+$/
+    - /SP\/.+$/
     - /.*\/APPS-.*$/
     - fix/travis-wait
 
