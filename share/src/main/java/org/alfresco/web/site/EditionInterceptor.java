@@ -115,13 +115,13 @@ public class EditionInterceptor extends AbstractWebFrameworkInterceptor
                             if (MTAuthenticationFilter.getCurrentServletRequest() != null)
                             {
                                 HttpSession session = MTAuthenticationFilter.getCurrentServletRequest().getSession(false);
-                                if (session != null)
+                                String userId = (String) session.getAttribute(UserFactory.SESSION_ATTRIBUTE_KEY_USER_ID);
+                                if (userId != null)
                                 {
                                     // we try now that a Session is acquired and we have an authenticated user
                                     // this is the only time that we can successfully retrieve the license information
                                     // when the repo is in multi-tenant mode - as guest auth is not supported otherwise
-                                    conn = rc.getServiceRegistry().getConnectorService().getConnector(
-                                            "alfresco", (String)session.getAttribute(UserFactory.SESSION_ATTRIBUTE_KEY_USER_ID), session);
+                                    conn = rc.getServiceRegistry().getConnectorService().getConnector("alfresco", userId, session);
                                     response = conn.call("/api/admin/restrictions");
                                 }
                                 else

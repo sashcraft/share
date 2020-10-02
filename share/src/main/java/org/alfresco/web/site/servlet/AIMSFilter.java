@@ -126,7 +126,7 @@ public class AIMSFilter extends KeycloakOIDCFilter
     {
         HttpServletRequest request = (HttpServletRequest) sreq;
         HttpServletResponse response = (HttpServletResponse) sres;
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
 
         if (this.enabled && (!AuthenticationUtil.isAuthenticated(request) || this.isLoggedOutFromKeycloak(session)))
         {
