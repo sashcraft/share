@@ -100,9 +100,9 @@ jobs:
       if: fork=false AND commit_message !~ /\[trigger company release\]/
       before_install: bash _ci/init.sh
       install: skip
-      script:
-        - bash _ci/execute_share_web.sh "login.xml"
-        - bash _ci/execute_share_web.sh "login2.xml"
+#      script:
+#        - bash _ci/execute_share_web.sh "login.xml"
+#        - bash _ci/execute_share_web.sh "login2.xml"
       addons:
         artifacts:
             paths:
