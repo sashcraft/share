@@ -100,8 +100,9 @@ jobs:
       if: fork=false AND commit_message !~ /\[trigger company release\]/
       before_install: bash _ci/init.sh
       install: skip
-      script:
-        - bash _ci/execute_share_web.sh "admin-tools-tests.xml"
+#      script:
+#        - bash _ci/execute_share_web.sh "login.xml"
+#        - bash _ci/execute_share_web.sh "login2.xml"
       addons:
         artifacts:
             paths:
@@ -110,16 +111,16 @@ jobs:
             target_paths: $TRAVIS_BUILD_NUMBER
 
     - <<: *test-staging
-      name: "User and Authentication Tests"
-      script: bash _ci/execute_share_web.sh "user-tests.xml"
+      name: "Sequential"
+      script: bash _ci/execute_share_web.sh "login.xml"
 
     - <<: *test-staging
-      name: "User Dashboard Tests"
-      script: bash _ci/execute_share_web.sh "user-dashboard-tests.xml"
+      name: "Parallel"
+      script: bash _ci/execute_share_web.sh "login2.xml"
 
-    - <<: *test-staging
-      name: "Content Tests"
-      script: bash _ci/execute_share_web.sh "content-tests.xml"
+#    - <<: *test-staging
+#      name: "Content Tests"
+#      script: bash _ci/execute_share_web.sh "content-tests.xml"
 
     - name: "Delete environment"
       stage: tearDown
