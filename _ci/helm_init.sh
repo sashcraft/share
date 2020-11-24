@@ -1,1 +1,1 @@
-helm init -debug
+helm init --debug
