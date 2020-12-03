@@ -37,13 +37,13 @@ branches:
 
 env:
   global:
-    - REPO_TAG_NAME=7.0.0-M2
-    - SHARE_TAG_NAME=latest
+    - REPO_TAG_NAME=7.0.0-A13
+    - SHARE_TAG_NAME=fix-APPS-000-revert-of-webscript-7.0.0-SNAPSHOT
     # Release version has to start with real version (7.0.0-....) for the docker image to build successfully.
     - RELEASE_VERSION=7.0.0-A10
     - DEVELOPMENT_VERSION=7.0.0-SNAPSHOT
     - HOSTED_ZONE=dev.alfresco.me
-    - KEEP_ENV=false
+    - KEEP_ENV=true
 
 stages:
   - build
