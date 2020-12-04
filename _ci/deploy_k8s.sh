@@ -9,8 +9,8 @@ source _ci/init_tag.sh
 export HOST="${NAMESPACE}.${HOSTED_ZONE}"
 export RELEASE_NAME=$NAMESPACE
 export RELEASE_INGRESS_NAME="${NAMESPACE}-ingress"
-export ALFRESCO_REPO_IMAGE="alfresco-content-repository"
-export ALFRESCO_SHARE_IMAGE="alfresco-share"
+export ALFRESCO_REPO_IMAGE="alfresco-governance-repository-enterprise"
+export ALFRESCO_SHARE_IMAGE="alfresco-governance-share-enterprise"
 
 #
 # Determine if the current branch is develop or not
@@ -152,7 +152,7 @@ function createEnv {
           --set repository.image.tag="${REPO_TAG_NAME}" \
           --set share.image.repository="quay.io/alfresco/${ALFRESCO_SHARE_IMAGE}" \
           --set share.image.tag="${SHARE_TAG_NAME}" \
-          --set repository.environment.JAVA_OPTS="-Dalfresco.restApi.basicAuthScheme=true -Dsolr.base.url=/solr -Dsolr.secureComms=none -Dindex.subsystem.name=solr6 -Dalfresco.cluster.enabled=true -Ddeployment.method=HELM_CHART -Dtransform.service.enabled=true -Xms2000M -Xmx2000M" \
+          --set repository.environment.JAVA_OPTS="-Dalfresco.restApi.basicAuthScheme=true -Dsolr.base.url=/solr -Dsolr.secureComms=none -Dindex.subsystem.name=solr6 -Dalfresco.cluster.enabled=true -Ddeployment.method=HELM_CHART -Dtransform.service.enabled=true -Xms2000M -Xmx2000M -Dalfresco_user_store.adminusername='admin@alfresco.com'" \
           --namespace $NAMESPACE
 
   # get ELB address required for Route53 entry
