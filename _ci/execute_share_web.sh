@@ -7,7 +7,7 @@ pushd "$(dirname "${BASH_SOURCE[0]}")/../"
 
 git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Alfresco/alfresco-tas-share-test.git
 cd alfresco-tas-share-test
-git checkout master
+git checkout feature/APPS-webdriver-manager
 
 if [[ "$TRAVIS_BRANCH" = "develop" ]]; then
   NAMESPACE="develop-share"
@@ -33,9 +33,8 @@ mvn install \
                -Dadmin.password=$ALF_PASSWORD \
                -Dbrowser.headless=true \
                -Dwebdriver.grid.url='http://127.0.0.1:4444/wd/hub' \
-               -Dbrowser.name=Firefox \
+               -Dbrowser.name=chrome \
                -Dbrowser.version=44.0 \
-               -Ddisplay.xport=99.0 \
                -Daims.enabled=false & # send the long living command to background!
 
 minutes=0
