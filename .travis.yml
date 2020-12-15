@@ -133,3 +133,13 @@ jobs:
       if: fork=false AND commit_message =~ /\[trigger company release\]/ AND branch =~ /(master|SP\/.+|HF\/.+)$/
       before_install: bash _ci/init_tag.sh
       script: travis_wait 30 _ci/company-release.sh
+
+notifications:
+  slack:
+    rooms:
+      secure: "2t8dnGhRAI8VPyfbBpRcys7dRGS80gf5Fp92bbMnD2mlAC7e//3iNIgj5Fzul2IV2A8jlw9RNO+20dqWi4mfrYkKKU1cu0pf0t6j1r+u41f4sv51XZC+muZxhpuVFMZI3oXW1QZLHDw7BDdriwLMa+qpbDvTQDUbV4oflZ0qNlJOm7UYwMkjBvSgcsCCd2Uycyk9ZmuGzegaSnRmnpNptdnXmLJ7azoNqw/Hhe04tw8Z9Mst218WnNH8FbcVE8NBNF5APVMDv/gfNcKTSY62ckuzJ5UlnAE4k+F9P+XtVcD6kYLhuky0A03BvTkYq/se4LV2GzwPsbxFgKLSmZ+bBC5YyhKkA203lxvukhKzrBtQFOwDxUuq35EE4dgtXCEW/k7hVRX+Bx9cKJahS7BkGjNQTMakMQxtYGeRPljKMZPbKuOUsWVx9CV8+8beQ4vua7kTD/bYqKIZ4YfpstlAjZHUR40weE6MKbRKWGeVzAqgmDAxLZctT/IJrh0/keSBK0iLtLjtBDsy4uWQEKk27Ltls2szpjiJRQ+CH4d5opMq5aNC3uHjNrC3/ARg5ObnR7dnKyCf6KP488cjMY208qJA1OhKYLEp/aWR2q4XYCuxd9Kaps40iYFGbq92S+QC1oc6ob5+bcSRsZ3EYjTMBd3YSZXEouMolgp4k3OXlIw="
+    on_success: always
+    on_failure: always
+    on_pull_requests: false
+    template:
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
