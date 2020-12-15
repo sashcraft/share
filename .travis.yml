@@ -137,9 +137,9 @@ jobs:
 notifications:
   slack:
     rooms:
-      secure: "2t8dnGhRAI8VPyfbBpRcys7dRGS80gf5Fp92bbMnD2mlAC7e//3iNIgj5Fzul2IV2A8jlw9RNO+20dqWi4mfrYkKKU1cu0pf0t6j1r+u41f4sv51XZC+muZxhpuVFMZI3oXW1QZLHDw7BDdriwLMa+qpbDvTQDUbV4oflZ0qNlJOm7UYwMkjBvSgcsCCd2Uycyk9ZmuGzegaSnRmnpNptdnXmLJ7azoNqw/Hhe04tw8Z9Mst218WnNH8FbcVE8NBNF5APVMDv/gfNcKTSY62ckuzJ5UlnAE4k+F9P+XtVcD6kYLhuky0A03BvTkYq/se4LV2GzwPsbxFgKLSmZ+bBC5YyhKkA203lxvukhKzrBtQFOwDxUuq35EE4dgtXCEW/k7hVRX+Bx9cKJahS7BkGjNQTMakMQxtYGeRPljKMZPbKuOUsWVx9CV8+8beQ4vua7kTD/bYqKIZ4YfpstlAjZHUR40weE6MKbRKWGeVzAqgmDAxLZctT/IJrh0/keSBK0iLtLjtBDsy4uWQEKk27Ltls2szpjiJRQ+CH4d5opMq5aNC3uHjNrC3/ARg5ObnR7dnKyCf6KP488cjMY208qJA1OhKYLEp/aWR2q4XYCuxd9Kaps40iYFGbq92S+QC1oc6ob5+bcSRsZ3EYjTMBd3YSZXEouMolgp4k3OXlIw="
+      secure: "bU30OZYm/ueiQaRWRsLSSiYPmhNoMc8Q7g08GNSIJ0ru2A3lXUzALUxhsJT3EVkrWeJTvx0I4vUj6vQP55Fkimeyq5/qT1cqRSjRCmn19CiNeVlYZZ8hB1QL6iaQOAK39VgQ0nKqQBMcxy/rXTtWafiBba63hE1rQCt/uT/9mLi8JijdHEDzH35rM+xy8jJOC9lCyuuxb/oI8/gqgXGYc9t2sfZ5+cYsLuccDhkeNjJggMHqBggqGDKpw562E7hNSJtid/sv5tLjaHXMUmu6iRr+NfPGW3dt/hP48O92hMxW+YuDoq/53GKdJq87/pxK5kLGjmnKNvagtbPoEBiBXTdNaZjNDmVbqrH8j8gFC27Xq6zcSJV9gUYh/orjPHe+ZNnTfyBZsuTEbCSpGE0XMHWZKUblCH4mY9xVcIlWM7xxCAMI4o5LVALHx+2joxeO5AuWYnjJnVdnLIkCYle8icToF9sKniC1dAoBmprDFIJQxLP6LdaJQouV0FaMPo+oZQKUMcAJSTa5SqNvBXvY71TVTwGgRpbMa+cPfWWDgGsHCi8OVcgLqhkTXBkWKZ5+hbD0SyKLgo7QO8o21ZijClGsIvnwmK2slk+Nrx/C5TN92IEKt3IVtvoNAMM2qJRdEY64T4oLup3FmYnsaCYFarPNO/y8krTiMR18ui8T+7Y="
     on_success: always
     on_failure: always
-    on_pull_requests: false
+    on_pull_requests: true
     template:
       - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
