@@ -136,15 +136,15 @@ jobs:
 
 notifications:
   slack:
-    - rooms:
-      - secure: "WlmKspZXlP4qnNXti2XLwc1vbF8NUeHWCoHEXUcWdMTF2w7tldVGNcF6yNXay8GpfKFDoMk0o11ZNwWJxbvy1C8JhEsrhRnmVVOt2LMx3Ps+ReFjWKwcMg3nIB1evqCgIMl1GYNyAL8Ruawpz6sNqw3VXfLSirlsUomMT7IMY3XctASdEaZnOrDDfsvCKdDG3gVAbU/VNJyH/1W1IMiNR+7So8zq4nRDND+jhDSSB6KNOdfeVS2eUfciTlL/KyK5RqU8ScnvNtMrZC3uUjrrk6j142+OlV4hruX5X6hq38gIG/NPJzC6I1FEQ/LiPBt80gh2RL0rwC4/qPyNyBqPrycwvHyInzaeWNiVVt7HVVaoPLcvXOTygRriMgsfOzrMCVFcpDnHhAh9TDxSh5K264CiXULWFG4mlfNkqIaJkZ+eGJn0OUDk03eNIHTXVHWKFw4LQKfXmxtn7aY31btmg7xpTdNks1MuxqR+wzDWJgKf/WIgnYq1z9iETVciSxMUfoXwO+Gd2ZSWrh4Igcva8c3Zq2WIxZGqM3SJJnsv23QjOvWPJRZTHOdJdhm4DS2vDvwIv8zeXep7bB6uFgnyjeWCYkQ9e5JsFjgf1ZgBHcMpAYgts4U47WqqAng2zecW3zLL7j1Xi5XOzDJLdlxUkF2Gvc/n3cap2wljdMVSaHE="
+    rooms:
+    - secure: "WlmKspZXlP4qnNXti2XLwc1vbF8NUeHWCoHEXUcWdMTF2w7tldVGNcF6yNXay8GpfKFDoMk0o11ZNwWJxbvy1C8JhEsrhRnmVVOt2LMx3Ps+ReFjWKwcMg3nIB1evqCgIMl1GYNyAL8Ruawpz6sNqw3VXfLSirlsUomMT7IMY3XctASdEaZnOrDDfsvCKdDG3gVAbU/VNJyH/1W1IMiNR+7So8zq4nRDND+jhDSSB6KNOdfeVS2eUfciTlL/KyK5RqU8ScnvNtMrZC3uUjrrk6j142+OlV4hruX5X6hq38gIG/NPJzC6I1FEQ/LiPBt80gh2RL0rwC4/qPyNyBqPrycwvHyInzaeWNiVVt7HVVaoPLcvXOTygRriMgsfOzrMCVFcpDnHhAh9TDxSh5K264CiXULWFG4mlfNkqIaJkZ+eGJn0OUDk03eNIHTXVHWKFw4LQKfXmxtn7aY31btmg7xpTdNks1MuxqR+wzDWJgKf/WIgnYq1z9iETVciSxMUfoXwO+Gd2ZSWrh4Igcva8c3Zq2WIxZGqM3SJJnsv23QjOvWPJRZTHOdJdhm4DS2vDvwIv8zeXep7bB6uFgnyjeWCYkQ9e5JsFjgf1ZgBHcMpAYgts4U47WqqAng2zecW3zLL7j1Xi5XOzDJLdlxUkF2Gvc/n3cap2wljdMVSaHE="
       on_success: always
       on_failure: always
       on_pull_requests: false
       template:
         - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
-    - rooms:
-        -secure: "ki0MCQMCREU62BH4dGElozATxt36rSL41YJdlTtk15vUA32dwEcCHadVmtG/QLWPUwa45jK7UIf+qJriubzlMMF7Pxpuo6xBye30WMSw4T+5c9NvVzjwjL9ZLPHIhypmxMS1ffAEPog4HHdiHI16I4bw1IS4wjtVMF4kRiqhJUY/voX/IqGImBveGhngw8nrxt+1RstcL9i9VTXSFq0sfHs75J8nbidg6v+PzbmEFoLHcI5Dzk7Nj049HgLh7vFdljMs/CxOnVo6sew92WRnkuRMDq8qlqSyfZpGaAHlidoIYU3lztWzYl474XjWZzxdv00EvIJ/hwL3CLZ7o2Eh4qRUjfmV6js3iRvHwPE9w4zT1En1ffInYQ+8MTtyhppb4E0EYqu5uPhcyYzS1UKt3jxinZFPpAfkG4IluaBw1lQ2gEymTL9ocdiNuwb6HgJcowisH353kfhAA7987kBA416vMtxvXMy+w8or/jKa6KqomdpyEQedf+amzDZ9izB8yAq0PPwZGcc7S4yNncCsCObRKWBZO+8oICD2d+jRf3lSByIW6KerefUItiaDf9ZTSHfRbij4ax7x+bJ4tORF0YGTt4lHv8YpsqsxhIcl2uxibwhKWYSd4ezdzovsaCId8/k/e3fP76laAP8gbQTofrksXhRnUN+qX4ihmiWk1i8="
+
+    - secure: "ki0MCQMCREU62BH4dGElozATxt36rSL41YJdlTtk15vUA32dwEcCHadVmtG/QLWPUwa45jK7UIf+qJriubzlMMF7Pxpuo6xBye30WMSw4T+5c9NvVzjwjL9ZLPHIhypmxMS1ffAEPog4HHdiHI16I4bw1IS4wjtVMF4kRiqhJUY/voX/IqGImBveGhngw8nrxt+1RstcL9i9VTXSFq0sfHs75J8nbidg6v+PzbmEFoLHcI5Dzk7Nj049HgLh7vFdljMs/CxOnVo6sew92WRnkuRMDq8qlqSyfZpGaAHlidoIYU3lztWzYl474XjWZzxdv00EvIJ/hwL3CLZ7o2Eh4qRUjfmV6js3iRvHwPE9w4zT1En1ffInYQ+8MTtyhppb4E0EYqu5uPhcyYzS1UKt3jxinZFPpAfkG4IluaBw1lQ2gEymTL9ocdiNuwb6HgJcowisH353kfhAA7987kBA416vMtxvXMy+w8or/jKa6KqomdpyEQedf+amzDZ9izB8yAq0PPwZGcc7S4yNncCsCObRKWBZO+8oICD2d+jRf3lSByIW6KerefUItiaDf9ZTSHfRbij4ax7x+bJ4tORF0YGTt4lHv8YpsqsxhIcl2uxibwhKWYSd4ezdzovsaCId8/k/e3fP76laAP8gbQTofrksXhRnUN+qX4ihmiWk1i8="
       # if: fork=false AND commit_message =~ /\[release\]/ AND branch =~ /(master|develop|SP\/.+|HF\/.+)$/
       on_success: always
       on_failure: never
