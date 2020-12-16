@@ -143,12 +143,26 @@ notifications:
       on_pull_requests: false
       template:
         - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
-
-#    - rooms:
-#        - secure: "ki0MCQMCREU62BH4dGElozATxt36rSL41YJdlTtk15vUA32dwEcCHadVmtG/QLWPUwa45jK7UIf+qJriubzlMMF7Pxpuo6xBye30WMSw4T+5c9NvVzjwjL9ZLPHIhypmxMS1ffAEPog4HHdiHI16I4bw1IS4wjtVMF4kRiqhJUY/voX/IqGImBveGhngw8nrxt+1RstcL9i9VTXSFq0sfHs75J8nbidg6v+PzbmEFoLHcI5Dzk7Nj049HgLh7vFdljMs/CxOnVo6sew92WRnkuRMDq8qlqSyfZpGaAHlidoIYU3lztWzYl474XjWZzxdv00EvIJ/hwL3CLZ7o2Eh4qRUjfmV6js3iRvHwPE9w4zT1En1ffInYQ+8MTtyhppb4E0EYqu5uPhcyYzS1UKt3jxinZFPpAfkG4IluaBw1lQ2gEymTL9ocdiNuwb6HgJcowisH353kfhAA7987kBA416vMtxvXMy+w8or/jKa6KqomdpyEQedf+amzDZ9izB8yAq0PPwZGcc7S4yNncCsCObRKWBZO+8oICD2d+jRf3lSByIW6KerefUItiaDf9ZTSHfRbij4ax7x+bJ4tORF0YGTt4lHv8YpsqsxhIcl2uxibwhKWYSd4ezdzovsaCId8/k/e3fP76laAP8gbQTofrksXhRnUN+qX4ihmiWk1i8="
-#        # if: fork=false AND commit_message =~ /\[release\]/ AND branch =~ /(master|develop|SP\/.+|HF\/.+)$/
-#      on_success: always
-#      on_failure: always
-#      on_pull_requests: false
-#      template:
-#        - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
+    - rooms:
+        - secure: "ki0MCQMCREU62BH4dGElozATxt36rSL41YJdlTtk15vUA32dwEcCHadVmtG/QLWPUwa45jK7UIf+qJriubzlMMF7Pxpuo6xBye30WMSw4T+5c9NvVzjwjL9ZLPHIhypmxMS1ffAEPog4HHdiHI16I4bw1IS4wjtVMF4kRiqhJUY/voX/IqGImBveGhngw8nrxt+1RstcL9i9VTXSFq0sfHs75J8nbidg6v+PzbmEFoLHcI5Dzk7Nj049HgLh7vFdljMs/CxOnVo6sew92WRnkuRMDq8qlqSyfZpGaAHlidoIYU3lztWzYl474XjWZzxdv00EvIJ/hwL3CLZ7o2Eh4qRUjfmV6js3iRvHwPE9w4zT1En1ffInYQ+8MTtyhppb4E0EYqu5uPhcyYzS1UKt3jxinZFPpAfkG4IluaBw1lQ2gEymTL9ocdiNuwb6HgJcowisH353kfhAA7987kBA416vMtxvXMy+w8or/jKa6KqomdpyEQedf+amzDZ9izB8yAq0PPwZGcc7S4yNncCsCObRKWBZO+8oICD2d+jRf3lSByIW6KerefUItiaDf9ZTSHfRbij4ax7x+bJ4tORF0YGTt4lHv8YpsqsxhIcl2uxibwhKWYSd4ezdzovsaCId8/k/e3fP76laAP8gbQTofrksXhRnUN+qX4ihmiWk1i8="
+        # if: fork=false AND commit_message =~ /\[release\]/ AND branch =~ /(master|develop|SP\/.+|HF\/.+)$/
+      on_success: always
+      on_failure: always
+      on_pull_requests: false
+      template:
+        - "%{repository_slug} -> repository_slug: your GitHub repo identifier (like svenfuchs/minimal)
+           %{repository_name} -> repository_name: the slug without the username
+           %{repository} -> repository: same as repository_slug [Deprecated]
+           %{build_number} -> build_number: build number
+           %{build_id} -> build_id: build id
+           %{branch} -> branch: branch build name
+           %{commit} -> commit: shortened commit SHA
+           %{author} -> author: commit author name
+           %{commit_message} -> commit_message: commit message of build
+           %{commit_subject} -> commit_subject: first line of the commit message
+           %{result} -> result: result of build
+           %{message} -> message: travis message to the build
+           %{duration} -> duration: total duration of all builds in the matrix
+           %{elapsed_time} -> elapsed_time: time between build start and finish
+           %{compare_url} -> compare_url: commit change view URL
+           %{build_url} -> build_url: URL of the build detail"
