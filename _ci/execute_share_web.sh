@@ -31,7 +31,8 @@ mvn install \
                -Dadmin.user=admin \
                -Dadmin.password=$ALF_PASSWORD \
                -Dbrowser.name=chrome \
-               -Dbrowser.version=80.0 \
+               -Dbrowser.version=stable \
+               -Ddisplay.xport=99.0 \
                -Daims.enabled=false & # send the long living command to background!
 
 minutes=0
