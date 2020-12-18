@@ -6,6 +6,7 @@ set -vex
 pushd "$(dirname "${BASH_SOURCE[0]}")/../"
 
 source _ci/init_tag.sh
+sudo top -b -n 1
 
 # Change tag image name with the value of TAG_NAME
 sed  -i "s/<image.tag>latest/<image.tag>$TAG_NAME/" packaging/docker/pom.xml

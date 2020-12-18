@@ -4,7 +4,7 @@ language: java
 jdk: openjdk11
 
 addons:
-  chrome: "stable"
+  chrome: "87.0.4280.88"
 
 git:
   depth: false
