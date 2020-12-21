@@ -32,6 +32,7 @@ mvn install \
                -Dadmin.user=admin \
                -Dadmin.password=$ALF_PASSWORD \
                -Dbrowser.headless=true \
+               -Ddisplay.xport=99.0 \
                -Dwebdriver.grid.url='http://127.0.0.1:4444/wd/hub' \
                -Daims.enabled=false & # send the long living command to background!
 
