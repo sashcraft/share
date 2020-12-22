@@ -41,7 +41,6 @@ before_cache:
   - rm -rf $HOME/.m2/repository/org/alfresco/share*
   - rm -rf $HOME/.m2/repository/org/alfresco/alfresco-content-services-share-*
   - rm -rf $HOME/.m2/repository/org/alfresco/alfresco-wcmqs*
-  - rm -rf /home/travis/.m2
 
 branches:
   only:
@@ -85,13 +84,6 @@ jobs:
     - name: "Build and Test"
       stage: build
       before_install: bash _ci/init.sh
-      install:
-          - wget -N https://chromedriver.storage.googleapis.com/83.0.4103.14/chromedriver_linux64.zip -P ~/
-          - unzip ~/chromedriver_linux64.zip -d ~/
-          - rm ~/chromedriver_linux64.zip
-          - sudo mv -f ~/chromedriver /usr/local/share/
-          - sudo chmod +x /usr/local/share/chromedriver
-          - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
       script: bash _ci/build.sh
 
     - name: "White Source"
@@ -130,6 +122,7 @@ jobs:
               - alfresco-tas-share-test/target/surefire-reports
               - alfresco-tas-share-test/target/reports
             target_paths: $TRAVIS_BUILD_NUMBER
+        chrome: stable
 
     - <<: *test-staging
       name: "User and Authentication Tests"
