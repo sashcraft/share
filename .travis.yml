@@ -4,9 +4,15 @@ language: java
 jdk: openjdk11
 
 addons:
-  apt:
-    packages:
-      - google-chrome-stable
+  chrome: stable
+
+install:
+  - wget -N https://chromedriver.storage.googleapis.com/87.0.4280.88/chromedriver_linux64.zip -P ~/
+  - unzip ~/chromedriver_linux64.zip -d ~/
+  - rm ~/chromedriver_linux64.zip
+  - sudo mv -f ~/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
 
 git:
   depth: false
