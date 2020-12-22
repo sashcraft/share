@@ -6,11 +6,11 @@ jdk: openjdk11
 addons:
   chrome: stable
 
-before_script:
-  - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
-  - CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAIN_VERSION"`
-  - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
-  - unzip chromedriver_linux64.zip -d ~/bin
+#before_script:
+#  - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
+#  - CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAIN_VERSION"`
+#  - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+#  - unzip chromedriver_linux64.zip -d ~/bin
 
 #install:
 #  - wget -N https://chromedriver.storage.googleapis.com/83.0.4103.14/chromedriver_linux64.zip -P ~/
@@ -84,6 +84,11 @@ jobs:
     - name: "Build and Test"
       stage: build
       before_install: bash _ci/init.sh
+      before_script:
+          - CHROME_MAIN_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
+          - CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_MAIN_VERSION"`
+          - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+          - unzip chromedriver_linux64.zip -d ~/bin
       script: bash _ci/build.sh
 
     - name: "White Source"
