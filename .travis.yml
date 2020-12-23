@@ -2,9 +2,7 @@ os: linux
 dist: xenial
 language: java
 jdk: openjdk11
-
-addons:
-  chrome: stable
+install: true
 
 git:
   depth: false
@@ -99,6 +97,8 @@ jobs:
 
     - name: "Admin Tools Tests"
       stage: tests
+      before_script:
+        - export DISPLAY=:99.0
       script:
         - bash _ci/execute_share_web.sh "admin-tools-tests.xml"
       addons:
@@ -106,12 +106,16 @@ jobs:
 
     - name: "User and Authentication Tests"
       stage: tests
+      before_script:
+        - export DISPLAY=:99.0
       script: bash _ci/execute_share_web.sh "user-tests.xml"
       addons:
         chrome: stable
 
     - name: "Content Tests"
       stage: tests
+      before_script:
+        - export DISPLAY=:99.0
       script: bash _ci/execute_share_web.sh "content-tests.xml"
       addons:
         chrome: stable
