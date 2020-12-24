@@ -98,23 +98,25 @@ jobs:
 
     - name: "Admin Tools Tests"
       stage: tests
-      services: xvfb
       script:
         - bash _ci/execute_share_web.sh "admin-tools-tests.xml"
+        - xvfb-run --server-args="-screen 0 1920x1080x24"
       addons:
         chrome: stable
 
     - name: "User and Authentication Tests"
       stage: tests
-      services: xvfb
-      script: bash _ci/execute_share_web.sh "user-tests.xml"
+      script:
+        - bash _ci/execute_share_web.sh "user-tests.xml"
+        - xvfb-run --server-args="-screen 0 1920x1080x24"
       addons:
         chrome: stable
 
     - name: "Content Tests"
       stage: tests
-      services: xvfb
-      script: bash _ci/execute_share_web.sh "content-tests.xml"
+      script:
+        - bash _ci/execute_share_web.sh "content-tests.xml"
+        - xvfb-run --server-args="-screen 0 1920x1080x24"
       addons:
         chrome: stable
 

@@ -36,19 +36,19 @@ mvn install \
                -Ddisplay.xport=99.0 \
                -Daims.enabled=false & # send the long living command to background!
 
-minutes=0
-limit=30
-while kill -0 $! >/dev/null 2>&1; do
-  echo -n -e " \b" # never leave evidences!
-
-  if [ $minutes == $limit ]; then
-    break;
-  fi
-
-  minutes=$((minutes+1))
-
-  sleep 60
-done
+#minutes=0
+#limit=30
+#while kill -0 $! >/dev/null 2>&1; do
+#  echo -n -e " \b" # never leave evidences!
+#
+#  if [ $minutes == $limit ]; then
+#    break;
+#  fi
+#
+#  minutes=$((minutes+1))
+#
+#  sleep 60
+#done
 
 # wait for the exit code of the background process
 wait $!
