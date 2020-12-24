@@ -11,7 +11,6 @@ git:
   quiet: true
 
 services:
-  - xvfb
   - docker
 
 import:
@@ -99,6 +98,7 @@ jobs:
 
     - name: "Admin Tools Tests"
       stage: tests
+      services: xvfb
       script:
         - bash _ci/execute_share_web.sh "admin-tools-tests.xml"
       addons:
@@ -106,12 +106,14 @@ jobs:
 
     - name: "User and Authentication Tests"
       stage: tests
+      services: xvfb
       script: bash _ci/execute_share_web.sh "user-tests.xml"
       addons:
         chrome: stable
 
     - name: "Content Tests"
       stage: tests
+      services: xvfb
       script: bash _ci/execute_share_web.sh "content-tests.xml"
       addons:
         chrome: stable
