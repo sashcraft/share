@@ -128,6 +128,21 @@ public class AIMSFilter extends KeycloakOIDCFilter
         HttpServletResponse response = (HttpServletResponse) sres;
         HttpSession session = request.getSession();
 
+        if(request.getHeader("user-agent").contains("ms-office"))
+        {
+            response.setStatus(HttpServletResponse.SC_OK);
+//            response.setHeader("Cache-Control", "max-age=0, no-cache, no-store, must-revalidate");
+//            response.setHeader("Pragma", "no-cache");
+//            response.setHeader("Expires", "-1");
+//            String responseToClient= "Sample Text Here";
+
+//            response.getWriter().write(responseToClient);
+//            response.getWriter().flush();
+//            response.getWriter().close();
+
+            return;
+        }
+
         if (this.enabled && (!AuthenticationUtil.isAuthenticated(request) || this.isLoggedOutFromKeycloak(session)))
         {
             super.doFilter(sreq, sres, chain);
